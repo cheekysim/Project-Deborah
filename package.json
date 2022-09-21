@@ -1,0 +1,16 @@
+{
+  "name": "jsbot",
+  "version": "1.0.0",
+  "description": "V1 of a discord bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cheekysim, devilwastaken",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.1.0",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.2"
+  }
+}
