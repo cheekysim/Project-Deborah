@@ -45,7 +45,7 @@ module.exports = {
             .setTitle("GPT-3")
             .addFields({name: interaction.options.getString('prompt'), value: completion.data.choices[0].text.replace('\n\n', '').trim()})
             .setColor(0x6600ff)
-            .setFooter({text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true })}) // This will show who requested the avatar
+            .setFooter({text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true })}) // This will show who requested the avatar
             .setTimestamp()
         await interaction.reply({ embeds: [embed] });
     },

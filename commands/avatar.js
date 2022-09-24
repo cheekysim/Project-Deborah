@@ -11,7 +11,7 @@ module.exports = {
         .setTitle(`${usr.username}'s Avatar`) // Sets the title of the embed to the user's username
         .setImage(usr.displayAvatarURL({dynamic: true, size: 4096})) // Sets the image of the embed to the avatar of the user
         .setColor(0x6600ff) // Sets the color of the embed to purple
-        .setFooter({text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({dynamic: true})}) // This will show who requested the avatar
+        .setFooter({text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({dynamic: true})}) // This will show who requested the avatar
         .setTimestamp(); // Sets the timestamp of the embed
         await interaction.reply({ embeds: [embed] }); // Replies with the embed
     }

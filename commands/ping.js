@@ -9,7 +9,7 @@ module.exports = {
 		.setTitle("Pong!") // Sets the title of the embed to Pong!
 		.setDescription(`Latency is ${Date.now() - interaction.createdTimestamp}ms. API Latency is ${Math.round(interaction.client.ws.ping)}ms`) // Sets the description of the embed to the latency
 		.setColor('0x6600ff') // Sets the color of the embed to purple
-		.setFooter({text: `Requested by ${interaction.user.tag}`, iconURL: interaction.user.displayAvatarURL({dynamic: true})}) // This will show who requested the avatar
+		.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({dynamic: true})}) // This will show who requested the avatar
 		.setTimestamp() // Sets the timestamp of the embed
 		await interaction.reply({ embeds: [embed] }); // Replies with the embed
 	},
