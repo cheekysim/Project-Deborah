@@ -8,13 +8,17 @@ module.exports = {
 		.setDescription('Shows Database!'), // The description of the command
 	async execute(interaction) { // Executes the command
         const con = mysql.createConnection({
-            host: "localhost",
+            host: "192.168.1.222",
             user: "root",
             password: DBPASS
         })
+		con.connect(function(err) {
+			if (err) throw err;
+			console.log("Connected!");
+		});
 		const embed = new EmbedBuilder() // Creates a new embed
-		.setTitle("Database!") // Sets the title of the embed to Pong!
-		.setDescription('TBD') // Sets the description of the embed to the latency
+		.setTitle("Database!") // Sets the title of the embed to Database
+		.setDescription('TBD') // Sets the description of the embed to TBD
 		.setColor('0x6600ff') // Sets the color of the embed to purple
 		.setFooter({text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({dynamic: true})}) // This will show who requested the avatar
 		.setTimestamp() // Sets the timestamp of the embed
