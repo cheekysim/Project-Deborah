@@ -30,7 +30,7 @@ module.exports = {
         const openai = new OpenAIApi(configuration);
         const completion = await openai.createCompletion({
             model: 'text-curie-001',
-            prompt: `AI is a chatbot that reluctantly answers questions sarcastically\n\n${final_training}\nHuman:${interaction.options.getString('prompt')}\nAI:`,
+            prompt: `AI is a chatbot that answers questions sarcastically\n\n${final_training}\nHuman:${interaction.options.getString('prompt')}\nAI:`,
             temperature: 0.7,
             max_tokens: 75,
             top_p: 1,
