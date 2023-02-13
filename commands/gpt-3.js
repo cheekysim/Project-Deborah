@@ -26,7 +26,7 @@ module.exports = {
         }
         const configuration = new Configuration({
             apiKey: process.env.OPENAIKEY,
-          });
+        });
         const openai = new OpenAIApi(configuration);
         const completion = await openai.createCompletion({
             model: 'text-curie-001',
@@ -37,15 +37,15 @@ module.exports = {
             frequency_penalty: 1,
             presence_penalty: 0.6,
             stop: [' Human:', ' AI:'],
-          });
+        });
         user_training.push([interaction.options.getString('prompt'), completion.data.choices[0].text.replace('\n\n', '').trim()]);
         const data = { data: user_training };
         fs.writeFileSync(__dirname + `/../gpt-users/${interaction.user.id}.json`, JSON.stringify(data, null, 4));
         embed = new EmbedBuilder()
             .setTitle("GPT-3")
-            .addFields({name: interaction.options.getString('prompt'), value: completion.data.choices[0].text.replace('\n\n', '').trim()})
+            .addFields({ name: interaction.options.getString('prompt'), value: completion.data.choices[0].text.replace('\n\n', '').trim() })
             .setColor(0x6600ff)
-            .setFooter({text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true })}) // This will show who requested the avatar
+            .setFooter({ text: `Requested by ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) }) // This will show who requested the avatar
             .setTimestamp()
         await interaction.reply({ embeds: [embed] });
     },
